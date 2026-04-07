@@ -54,21 +54,21 @@ export default function About() {
                                             >
                                             <p className="text-sm font-bold uppercase tracking-widest text-primary mb-3">
                                                           About Us
-                                            </p>p>
+                                            </p>
                                             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
                                                           なぜ、Medixusなのか。
-                                            </h2>h2>
+                                            </h2>
                                             <div className="space-y-4 text-muted leading-relaxed">
                                                           <p>
                                                                           日本の医療は世界最高水準の技術を誇りながら、膨大な事務作業、非効率なプロセス、地域格差によって、その真価が発揮されていない——私たちはそう考えました。
-                                                          </p>p>
+                                                          </p>
                                                           <p>
                                                                           Medixusは「医師と看護師以外のすべてを自動化する」という大胆なミッションのもと、医療DXの最前線で挑戦を続けています。
-                                                          </p>p>
+                                                          </p>
                                                           <p>
                                                                           オンライン診療、事務の完全自動化、データ駆動の医療支援。テクノロジーを黒子として活用し、医療従事者が本来の使命——「人に向き合うこと」——に集中できる世界を創ります。
-                                                          </p>p>
-                                            </div>div>
+                                                          </p>
+                                            </div>
                                 
                                   {/* Key numbers */}
                                             <div className="mt-10 grid grid-cols-3 gap-6">
@@ -80,12 +80,11 @@ export default function About() {
                                                                               <div key={stat.label}>
                                                                                                 <div className="text-2xl font-bold gradient-text">
                                                                                                   {stat.value}
-                                                                                                  </div>div>
-                                                                                                <div className="text-sm text-muted mt-1">{stat.label}</div>div>
-                                                                              </div>div>
+                                                                                                  </div>
+                                                                                                <div className="text-sm text-muted mt-1">{stat.label}                                                                              </div>
                                                                             ))}
-                                            </div>div>
-                                </div>div>
+                                            </div>
+                                </div>
                       
                         {/* Right: Timeline */}
                                 <div
@@ -110,20 +109,20 @@ export default function About() {
                                                                                                         }`}
                                                                                                     >
                                                                                   {item.year}
-                                                                                </span>span>
+                                                                                </span>
                                                                 {/* Content */}
                                                                                 <h4 className="text-lg font-bold text-foreground mb-1">
                                                                                   {item.title}
-                                                                                </h4>h4>
+                                                                                </h4>
                                                                                 <p className="text-muted leading-relaxed">
                                                                                   {item.description}
-                                                                                </p>p>
-                                                              </div>div>
+                                                                                </p>
+                                                              </div>
                                                             ))}
-                                            </div>div>
-                                </div>div>
-                      </div>div>
-              </div>div>
-        </section>section>
+                                            </div>
+                                </div>
+                      </div>
+              </div>
+        </section>
       );
-}</section>
+}

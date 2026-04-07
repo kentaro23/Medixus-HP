@@ -43,12 +43,12 @@ export default function Header() {
                                                                             strokeLinejoin="round"
                                                                           >
                                                                           <path d="M12 2v20M2 12h20" />
-                                                          </svg>svg>
-                                            </div>div>
+                                                          </svg>
+                                            </div>
                                             <span className="text-xl font-bold tracking-tight text-foreground">
                                                           Medixus
-                                            </span>span>
-                                </a>a>
+                                            </span>
+                                </a>
                       
                         {/* Desktop Nav */}
                                 <nav className="hidden md:flex items-center gap-8">
@@ -59,15 +59,15 @@ export default function Header() {
                                                 className="text-sm font-medium text-muted hover:text-foreground transition-colors"
                                               >
                                 {link.label}
-                              </a>a>
+                              </a>
                             ))}
                                             <a
                                                             href="#contact"
                                                             className="inline-flex items-center justify-center h-10 px-6 text-sm font-medium text-white bg-gradient-to-r from-primary to-primary-dark rounded-full hover:opacity-90 transition-opacity"
                                                           >
                                                           お問い合わせ
-                                            </a>a>
-                                </nav>nav>
+                                            </a>
+                                </nav>
                       
                         {/* Mobile toggle */}
                                 <button
@@ -88,17 +88,17 @@ export default function Header() {
                                                                             <>
                                                                                               <path d="M18 6L6 18" />
                                                                                               <path d="M6 6l12 12" />
-                                                                            </>>
+                                                                            </>
                                                                           ) : (
                                                                             <>
                                                                                               <path d="M4 6h16" />
                                                                                               <path d="M4 12h16" />
                                                                                               <path d="M4 18h16" />
-                                                                            </>>
+                                                                            </>
                                                                           )}
-                                            </svg>svg>
-                                </button>button>
-                      </div>div>
+                                            </svg>
+                                </button>
+                      </div>
               
                 {/* Mobile Nav */}
                 {mobileOpen && (
@@ -112,7 +112,7 @@ export default function Header() {
                                                                 onClick={() => setMobileOpen(false)}
                                                               >
                                               {link.label}
-                                            </a>a>
+                                            </a>
                                           ))}
                                                     <a
                                                                       href="#contact"
@@ -120,11 +120,11 @@ export default function Header() {
                                                                       onClick={() => setMobileOpen(false)}
                                                                     >
                                                                     お問い合わせ
-                                                    </a>a>
-                                      </nav>nav>
-                          </div>div>
+                                                    </a>
+                                      </nav>
+                          </div>
                       )}
-              </div>div>
-        </header>header>
+              </div>
+        </header>
       );
 }</></></header>

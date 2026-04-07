@@ -9,7 +9,7 @@ const services = [
                         <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
                         <path d="M8 21h8M12 17v4" />
                         <path d="M7.5 10.5l2 2 4-4" />
-                </svg>svg>
+                </svg>
               ),
         title: "オンライン診療",
         subtitle: "Online Consultation",
@@ -23,7 +23,7 @@ const services = [
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                         <polyline points="14 2 14 8 20 8" />
                         <path d="M9 15l2 2 4-4" />
-                </svg>svg>
+                </svg>
               ),
         title: "医療事務自動化",
         subtitle: "Medical Office Automation",
@@ -35,7 +35,7 @@ const services = [
         icon: (
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                </svg>svg>
+                </svg>
               ),
         title: "患者データプラットフォーム",
         subtitle: "Patient Data Platform",
@@ -48,7 +48,7 @@ const services = [
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                         <path d="M12 8v4M12 16h.01" />
-                </svg>svg>
+                </svg>
               ),
         title: "セキュリティ＆コンプライアンス",
         subtitle: "Security & Compliance",
@@ -92,19 +92,18 @@ function ServiceCard({
                   {/* Icon */}
                         <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
                           {service.icon}
-                        </div>div>
+                        </div>
                 
                   {/* Title */}
                         <h3 className="text-xl font-bold text-foreground mb-1">
                           {service.title}
-                        </h3>h3>
+                        </h3>
                         <p className="text-sm font-medium text-primary/60 mb-4">
                           {service.subtitle}
-                        </p>p>
+                        </p>
                 
                   {/* Description */}
-                        <p className="text-muted leading-relaxed mb-6">{service.description}</p>p>
-                
+                        <p className="text-muted leading-relaxed mb-6">{service.description}                
                   {/* Features */}
                         <div className="flex flex-wrap gap-2">
                           {service.features.map((f) => (
@@ -113,11 +112,11 @@ function ServiceCard({
                                               className="inline-flex items-center px-3 py-1 text-xs font-medium text-primary bg-primary/5 rounded-full"
                                             >
                                 {f}
-                              </span>span>
+                              </span>
                             ))}
-                        </div>div>
-                </div>div>
-          </div>div>
+                        </div>
+                </div>
+          </div>
         );
 }
 
@@ -129,24 +128,24 @@ export default function Services() {
                         <div className="text-center mb-16">
                                   <p className="text-sm font-bold uppercase tracking-widest text-primary mb-3">
                                               Our Services
-                                  </p>p>
+                                  </p>
                                   <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
                                               テクノロジーで、医療を解放する。
-                                  </h2>h2>
+                                  </h2>
                                   <p className="max-w-2xl mx-auto text-muted text-lg">
                                               医師と看護師が患者に向き合う時間を最大化するために、
                                               <br className="hidden sm:block" />
                                               それ以外のすべてを自動化する。
-                                  </p>p>
-                        </div>div>
+                                  </p>
+                        </div>
                 
                   {/* Cards Grid */}
                         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
                           {services.map((service, i) => (
                         <ServiceCard key={service.title} service={service} index={i} />
                       ))}
-                        </div>div>
-                </div>div>
-          </section>section>
+                        </div>
+                </div>
+          </section>
         );
-}</svg>
+}
