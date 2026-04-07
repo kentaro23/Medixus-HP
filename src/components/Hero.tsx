@@ -1,118 +1,94 @@
-"use client";
+const trustBadges = ["北里大学連携", "医療機関導入準備中", "セキュア運用設計"];
 
-import { useEffect, useRef } from "react";
+const flowCards = [
+  { label: "Input", value: "音声・問診・予約", tone: "from-primary/20 to-primary/5" },
+  { label: "AI Engine", value: "統合解析 + 自動化", tone: "from-accent/25 to-accent/5" },
+  { label: "Output", value: "現場負担を最小化", tone: "from-primary/15 to-accent/10" },
+];
 
 export default function Hero() {
-    const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-        const el = sectionRef.current;
-        if (!el) return;
-        el.classList.add("animate-fade-in-up");
-  }, []);
-
   return (
-        <section
-                ref={sectionRef}
-                className="relative min-h-screen flex items-center justify-center bg-white bg-grid overflow-hidden"
+    <section id="top" className="section-shell pt-32 md:pt-36">
+      <div className="pointer-events-none absolute inset-0 grid-overlay opacity-25" aria-hidden="true" />
+      <div className="pointer-events-none absolute -left-28 top-20 h-72 w-72 rounded-full bg-primary/15 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute -right-24 top-10 h-80 w-80 rounded-full bg-accent/12 blur-3xl animate-pulse-ring" aria-hidden="true" />
+
+      <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-6 pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8">
+        <div className="animate-fade-up">
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
+            NanoBanana Pro Direction
+          </p>
+
+          <h1 className="text-balance text-4xl font-extrabold leading-tight text-ink sm:text-5xl lg:text-6xl">
+            医療の未来を、<br />
+            <span className="text-shimmer">デジタルの力で再設計する。</span>
+          </h1>
+
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-soft sm:text-lg">
+            Medixusは、医療現場に散らばる業務とデータをひとつに統合し、
+            医師と看護師が患者に向き合う時間を最大化する医療DXプラットフォームを提供します。
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <a
+              href="#services"
+              className="rounded-full bg-gradient-to-r from-primary to-primary-strong px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+            >
+              ソリューションを見る
+            </a>
+            <a
+              href="#contact"
+              className="rounded-full border border-line bg-white px-6 py-3 text-sm font-bold text-ink transition-colors hover:border-primary/40"
+            >
+              資料請求・お問い合わせ
+            </a>
+          </div>
+
+          <div className="mt-10 flex flex-wrap gap-2">
+            {trustBadges.map((badge) => (
+              <span
+                key={badge}
+                className="rounded-full border border-line bg-white/85 px-3 py-1.5 text-xs font-semibold text-ink-soft"
               >
-          {/* Decorative blobs */}
-              <div className="absolute top-20 -left-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse-slow" />
-              <div className="absolute bottom-20 -right-32 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse-slow animation-delay-200" />
-        
-          {/* Floating medical icons */}
-              <div className="absolute top-1/4 left-[10%] opacity-10 animate-float">
-                      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                      </svg>
-              </div>
-              <div className="absolute top-1/3 right-[12%] opacity-10 animate-float animation-delay-400">
-                      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                <path d="M12 2v20M2 12h20" />
-                      </svg>
-              </div>
-              <div className="absolute bottom-1/3 left-[15%] opacity-10 animate-float animation-delay-600">
-                      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M12 8v8M8 12h8" />
-                      </svg>
-              </div>
-        
-              <div className="relative max-w-5xl mx-auto px-6 lg:px-8 text-center">
-                {/* Badge */}
-                      <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-primary/5 border border-primary/10">
-                                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                                <span className="text-sm font-medium text-primary">
-                                            医療DXの最前線へ
-                                </span>
-                      </div>
-              
-                {/* Main headline */}
-                      <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-tight mb-6">
-                                <span className="block text-foreground">Healthcare,</span>
-                                <span className="block gradient-text">Redefined.</span>
-                      </h1>
-              
-                {/* Sub copy */}
-                      <p className="max-w-2xl mx-auto text-lg sm:text-xl text-muted leading-relaxed mb-10">
-                                テクノロジーの力で、医療の常識を覆す。
-                                <br className="hidden sm:block" />
-                                すべての人が、どこにいても、最高の医療を受けられる未来を。
-                      </p>
-              
-                {/* CTAs */}
-                      <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                <a
-                                              href="#services"
-                                              className="inline-flex items-center justify-center h-12 px-8 text-base font-medium text-white bg-gradient-to-r from-primary to-primary-dark rounded-full hover:shadow-lg hover:shadow-primary/25 transition-all"
-                                            >
-                                            サービスを見る
-                                            <svg
-                                                            className="ml-2 w-4 h-4"
-                                                            viewBox="0 0 24 24"
-                                                            fill="none"
-                                                            stroke="currentColor"
-                                                            strokeWidth="2"
-                                                            strokeLinecap="round"
-                                                            strokeLinejoin="round"
-                                                          >
-                                                          <path d="M5 12h14M12 5l7 7-7 7" />
-                                            </svg>
-                                </a>
-                                <a
-                                              href="#vision"
-                                              className="inline-flex items-center justify-center h-12 px-8 text-base font-medium text-foreground border border-border rounded-full hover:bg-surface transition-colors"
-                                            >
-                                            私たちのビジョン
-                                </a>
-                      </div>
-              
-                {/* Stats */}
-                      <div className="mt-20 grid grid-cols-3 gap-8 max-w-lg mx-auto">
-                        {[
-                { value: "24/7", label: "オンライン対応" },
-                { value: "DX", label: "医療自動化" },
-                { value: "∞", label: "可能性" },
-                          ].map((stat, i) => (
-                                        <div key={i} className="text-center">
-                                                      <div className="text-2xl sm:text-3xl font-bold gradient-text">
-                                                        {stat.value}
-                                                      </div>
-                                                      <div className="mt-1 text-xs sm:text-sm text-muted">
-                                                        {stat.label}
-                                                      </div>
-                                        </div>
-                                      ))}
-                      </div>
-              </div>
-        
-          {/* Scroll indicator */}
-              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
-                      <span className="text-xs text-muted">Scroll</span>
-                      <div className="w-5 h-8 border-2 border-muted/40 rounded-full flex justify-center pt-1">
-                                <div className="w-1 h-2 bg-muted/60 rounded-full animate-bounce" />
-                      </div>
-              </div>
-        </section>
-      );
+                {badge}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="animate-fade-up [animation-delay:0.14s]">
+          <div className="glass-panel ring-gradient rounded-3xl p-6 sm:p-8">
+            <div className="mb-5 flex items-center justify-between">
+              <p className="text-sm font-semibold text-ink">DX Workflow</p>
+              <span className="rounded-full bg-accent-soft px-3 py-1 text-xs font-bold text-accent">Live Design</span>
+            </div>
+
+            <div className="space-y-4">
+              {flowCards.map((card) => (
+                <div key={card.label} className={`rounded-2xl bg-gradient-to-r p-4 ${card.tone}`}>
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-ink-soft">{card.label}</p>
+                  <p className="mt-1 text-sm font-semibold text-ink">{card.value}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 grid grid-cols-3 gap-3">
+              <Stat value="30%" label="事務時間削減" />
+              <Stat value="24h" label="予約受付" />
+              <Stat value="AA" label="安全基準" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Stat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="rounded-xl border border-line/80 bg-white/85 p-3 text-center">
+      <p className="font-display text-xl font-extrabold text-ink">{value}</p>
+      <p className="mt-1 text-[11px] font-semibold text-ink-soft">{label}</p>
+    </div>
+  );
 }
