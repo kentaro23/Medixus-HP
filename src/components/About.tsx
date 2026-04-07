@@ -81,7 +81,8 @@ export default function About() {
                                                                                                 <div className="text-2xl font-bold gradient-text">
                                                                                                   {stat.value}
                                                                                                   </div>
-                                                                                                <div className="text-sm text-muted mt-1">{stat.label}                                                                              </div>
+                                                                                                <div className="text-sm text-muted mt-1">{stat.label}</div>
+                                                                              </div>
                                                                             ))}
                                             </div>
                                 </div>

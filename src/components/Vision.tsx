@@ -88,7 +88,8 @@ function VMVCard({
                         >
                   {/* Tag */}
                         <div className={`inline-flex items-center gap-2 mb-6`}>
-                                  <span className={item.accent}>{item.icon}                                  <span
+                                  <span className={item.accent}>{item.icon}</span>
+                                  <span
                                                 className={`text-xs font-bold uppercase tracking-widest ${item.accent}`}
                                               >
                                     {item.tag}

@@ -103,7 +103,8 @@ function ServiceCard({
                         </p>
                 
                   {/* Description */}
-                        <p className="text-muted leading-relaxed mb-6">{service.description}                
+                        <p className="text-muted leading-relaxed mb-6">{service.description}</p>
+
                   {/* Features */}
                         <div className="flex flex-wrap gap-2">
                           {service.features.map((f) => (
