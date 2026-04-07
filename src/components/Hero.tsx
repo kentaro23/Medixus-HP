@@ -1,94 +1,89 @@
-const trustBadges = ["北里大学連携", "医療機関導入準備中", "セキュア運用設計"];
+const trustBadges = ["全国150+拠点導入支援", "24h対応設計", "医療情報セキュリティ配慮"];
 
-const flowCards = [
-  { label: "Input", value: "音声・問診・予約", tone: "from-primary/20 to-primary/5" },
-  { label: "AI Engine", value: "統合解析 + 自動化", tone: "from-accent/25 to-accent/5" },
-  { label: "Output", value: "現場負担を最小化", tone: "from-primary/15 to-accent/10" },
+const dataNodes = [
+  { label: "診療データ", value: "+42%" },
+  { label: "業務効率", value: "30%改善" },
+  { label: "患者満足", value: "+18pt" },
 ];
 
 export default function Hero() {
   return (
-    <section id="top" className="section-shell pt-32 md:pt-36">
-      <div className="pointer-events-none absolute inset-0 grid-overlay opacity-25" aria-hidden="true" />
-      <div className="pointer-events-none absolute -left-28 top-20 h-72 w-72 rounded-full bg-primary/15 blur-3xl" aria-hidden="true" />
-      <div className="pointer-events-none absolute -right-24 top-10 h-80 w-80 rounded-full bg-accent/12 blur-3xl animate-pulse-ring" aria-hidden="true" />
+    <section id="top" className="relative overflow-hidden pb-20 pt-32 md:pt-36">
+      <div className="pointer-events-none absolute inset-0 section-grid opacity-20" aria-hidden="true" />
+      <div className="pointer-events-none absolute left-[-7rem] top-12 h-72 w-72 rounded-full bg-brand-primary/20 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute right-[-5rem] top-20 h-64 w-64 rounded-full bg-brand-accent/30 blur-3xl animate-pulse-node" aria-hidden="true" />
 
-      <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-6 pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8">
+      <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-6 lg:grid-cols-[1.06fr_0.94fr] lg:items-center lg:px-8">
         <div className="animate-fade-up">
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
-            NanoBanana Pro Direction
+          <p className="mb-4 inline-flex items-center rounded-full border border-brand-primary/20 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-primary">
+            Healthcare DX Platform
           </p>
-
-          <h1 className="text-balance text-4xl font-extrabold leading-tight text-ink sm:text-5xl lg:text-6xl">
-            医療の未来を、<br />
-            <span className="text-shimmer">デジタルの力で再設計する。</span>
+          <h1 className="text-balance text-4xl font-extrabold leading-tight text-brand-text sm:text-5xl lg:text-6xl">
+            医療の未来を、
+            <span className="block text-brand-primary">データで再定義する。</span>
           </h1>
-
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-soft sm:text-lg">
-            Medixusは、医療現場に散らばる業務とデータをひとつに統合し、
-            医師と看護師が患者に向き合う時間を最大化する医療DXプラットフォームを提供します。
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-brand-muted sm:text-lg">
+            Medixusは、業務自動化とデータ統合を一体で設計し、
+            医療従事者が患者に向き合う時間を増やす次世代の医療DXプラットフォームです。
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href="#services"
-              className="rounded-full bg-gradient-to-r from-primary to-primary-strong px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+              className="primary-button rounded-lg px-6 py-3 text-sm font-bold transition-transform hover:-translate-y-0.5"
             >
               ソリューションを見る
             </a>
             <a
               href="#contact"
-              className="rounded-full border border-line bg-white px-6 py-3 text-sm font-bold text-ink transition-colors hover:border-primary/40"
+              className="secondary-button rounded-lg px-6 py-3 text-sm font-bold transition-transform hover:-translate-y-0.5"
             >
-              資料請求・お問い合わせ
+              デモ相談を予約
             </a>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-2">
+          <div className="mt-9 flex flex-wrap gap-2">
             {trustBadges.map((badge) => (
-              <span
-                key={badge}
-                className="rounded-full border border-line bg-white/85 px-3 py-1.5 text-xs font-semibold text-ink-soft"
-              >
+              <span key={badge} className="stat-badge rounded-full px-3 py-1 text-xs font-semibold">
                 {badge}
               </span>
             ))}
           </div>
         </div>
 
-        <div className="animate-fade-up [animation-delay:0.14s]">
-          <div className="glass-panel ring-gradient rounded-3xl p-6 sm:p-8">
+        <div className="animate-fade-up [animation-delay:0.16s]">
+          <div className="glass-card brand-shadow rounded-3xl p-6 sm:p-7">
             <div className="mb-5 flex items-center justify-between">
-              <p className="text-sm font-semibold text-ink">DX Workflow</p>
-              <span className="rounded-full bg-accent-soft px-3 py-1 text-xs font-bold text-accent">Live Design</span>
+              <p className="text-sm font-bold text-brand-text">Realtime Operations Board</p>
+              <span className="rounded-full bg-brand-sub-bg px-3 py-1 text-xs font-semibold text-brand-primary">Live</span>
             </div>
 
-            <div className="space-y-4">
-              {flowCards.map((card) => (
-                <div key={card.label} className={`rounded-2xl bg-gradient-to-r p-4 ${card.tone}`}>
-                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-ink-soft">{card.label}</p>
-                  <p className="mt-1 text-sm font-semibold text-ink">{card.value}</p>
+            <div className="rounded-2xl border border-brand-sub-bg bg-white p-5">
+              <div className="mb-4 flex items-end justify-between">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-muted">Current KPI</p>
+                  <p className="mt-1 text-2xl font-extrabold text-brand-text">92.4%</p>
                 </div>
-              ))}
-            </div>
+                <span className="rounded-full bg-brand-accent px-3 py-1 text-xs font-bold text-brand-text">+3.1%</span>
+              </div>
 
-            <div className="mt-6 grid grid-cols-3 gap-3">
-              <Stat value="30%" label="事務時間削減" />
-              <Stat value="24h" label="予約受付" />
-              <Stat value="AA" label="安全基準" />
+              <div className="space-y-3">
+                {dataNodes.map((node) => (
+                  <div key={node.label} className="rounded-xl bg-brand-sub-bg/70 p-3">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="font-semibold text-brand-muted">{node.label}</span>
+                      <span className="font-bold text-brand-primary">{node.value}</span>
+                    </div>
+                    <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white">
+                      <div className="h-full w-3/4 rounded-full bg-brand-primary" />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="rounded-xl border border-line/80 bg-white/85 p-3 text-center">
-      <p className="font-display text-xl font-extrabold text-ink">{value}</p>
-      <p className="mt-1 text-[11px] font-semibold text-ink-soft">{label}</p>
-    </div>
   );
 }

@@ -1,29 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --page: #f7fbfc;
-  --ink: #072137;
-  --ink-soft: #4a6374;
-  --primary: #0891b2;
-  --primary-strong: #0e7490;
-  --accent: #10b981;
-  --accent-soft: #d1fae5;
-  --card: #ffffff;
-  --line: #d6e6ee;
+  --brand-primary: #2563eb;
+  --brand-accent: #22c7e6;
+  --brand-bg: #f8fafc;
+  --brand-sub-bg: #eaf0f6;
+  --brand-text: #0f172a;
+  --brand-muted: #64748b;
+  --brand-dark: #1e293b;
 }
 
 @theme inline {
-  --color-page: var(--page);
-  --color-ink: var(--ink);
-  --color-ink-soft: var(--ink-soft);
-  --color-primary: var(--primary);
-  --color-primary-strong: var(--primary-strong);
-  --color-accent: var(--accent);
-  --color-accent-soft: var(--accent-soft);
-  --color-card: var(--card);
-  --color-line: var(--line);
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-bg: var(--brand-bg);
+  --color-brand-sub-bg: var(--brand-sub-bg);
+  --color-brand-text: var(--brand-text);
+  --color-brand-muted: var(--brand-muted);
+  --color-brand-dark: var(--brand-dark);
   --font-sans: var(--font-noto-sans-jp);
-  --font-display: var(--font-manrope);
+  --font-display: var(--font-plus-jakarta);
 }
 
 * {
@@ -35,96 +31,107 @@ html {
 }
 
 body {
-  color: var(--ink);
+  background-color: var(--brand-bg);
+  color: var(--brand-text);
   font-family: var(--font-noto-sans-jp), "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif;
-  background-image:
-    radial-gradient(circle at 12% 8%, rgba(8, 145, 178, 0.12), transparent 32%),
-    radial-gradient(circle at 88% 12%, rgba(16, 185, 129, 0.1), transparent 28%),
-    linear-gradient(180deg, #ffffff 0%, #f7fbfc 44%, #f2f9fb 100%);
 }
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: var(--font-manrope), "Avenir Next", sans-serif;
+  font-family: var(--font-plus-jakarta), "Avenir Next", sans-serif;
   letter-spacing: -0.02em;
 }
 
-.section-shell {
-  position: relative;
-  overflow: clip;
-}
-
-.grid-overlay {
+.site-gradient {
   background-image:
-    linear-gradient(rgba(8, 145, 178, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(8, 145, 178, 0.08) 1px, transparent 1px);
-  background-size: 36px 36px;
+    radial-gradient(circle at 15% 15%, rgba(37, 99, 235, 0.08), transparent 32%),
+    radial-gradient(circle at 85% 8%, rgba(34, 199, 230, 0.14), transparent 28%),
+    linear-gradient(180deg, #f8fafc 0%, #f3f7fb 52%, #eef4f9 100%);
 }
 
-.glass-panel {
+.section-grid {
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.glass-card {
   border: 1px solid rgba(255, 255, 255, 0.7);
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
 }
 
-.text-shimmer {
-  background: linear-gradient(120deg, var(--primary) 0%, var(--accent) 55%, #0ea5b9 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.ring-gradient {
+.brand-shadow {
   box-shadow:
-    0 0 0 1px rgba(8, 145, 178, 0.08),
-    0 24px 40px rgba(8, 145, 178, 0.15);
+    0 20px 36px rgba(15, 23, 42, 0.08),
+    0 2px 8px rgba(15, 23, 42, 0.06);
 }
 
-@keyframes fadeUp {
+.primary-button {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.secondary-button {
+  background: #1e293b;
+  color: #ffffff;
+}
+
+.stat-badge {
+  background: #22c7e6;
+  color: #0f172a;
+}
+
+@keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(22px);
+    transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-@keyframes pulseRing {
+@keyframes pulse-node {
   0%,
   100% {
     transform: scale(1);
-    opacity: 0.8;
+    opacity: 0.75;
   }
+
   50% {
-    transform: scale(1.06);
+    transform: scale(1.08);
     opacity: 1;
   }
 }
 
-@keyframes drift {
-  0%,
-  100% {
-    transform: translateY(0px);
+@keyframes count-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
-  50% {
-    transform: translateY(-10px);
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 .animate-fade-up {
-  animation: fadeUp 0.8s ease-out both;
+  animation: fade-up 0.8s ease-out both;
 }
 
-.animate-pulse-ring {
-  animation: pulseRing 4s ease-in-out infinite;
+.animate-pulse-node {
+  animation: pulse-node 4s ease-in-out infinite;
 }
 
-.animate-drift {
-  animation: drift 7s ease-in-out infinite;
+.animate-count-in {
+  animation: count-in 0.7s ease-out both;
 }
 
 @media (prefers-reduced-motion: reduce) {
