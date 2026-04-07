@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const pillars = [
   {
     title: "Trust",
@@ -38,15 +40,22 @@ export default function Vision() {
         </div>
 
         <div className="animate-fade-up [animation-delay:0.14s]">
-          <div className="relative overflow-hidden rounded-3xl border border-brand-sub-bg bg-brand-sub-bg p-6 sm:p-7">
-            <div className="absolute right-0 top-0 h-28 w-28 rounded-bl-[72px] bg-brand-accent/40" aria-hidden="true" />
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-muted">Clinical DX Promise</p>
-            <h3 className="mt-3 text-2xl font-extrabold text-brand-text">Automate Everything, Except Empathy.</h3>
-            <ul className="mt-5 space-y-3 text-sm text-brand-muted">
-              <li className="rounded-xl bg-white px-4 py-3">受付・会計・書類作成の自動化で現場負荷を軽減</li>
-              <li className="rounded-xl bg-white px-4 py-3">統合データ基盤で診療判断スピードを向上</li>
-              <li className="rounded-xl bg-white px-4 py-3">患者体験を崩さないUI/UX設計を徹底</li>
-            </ul>
+          <div className="relative overflow-hidden rounded-3xl border border-brand-sub-bg bg-brand-sub-bg">
+            <Image
+              src="/images/generated/vision-future.jpg"
+              alt="近未来の医療施設とデジタル診断環境"
+              width={1376}
+              height={768}
+              className="h-[420px] w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/25 to-transparent" />
+            <div className="absolute inset-x-5 bottom-5 rounded-2xl border border-white/20 bg-white/92 p-5">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-muted">Clinical DX Promise</p>
+              <h3 className="mt-2 text-xl font-extrabold text-brand-text">Automate Everything, Except Empathy.</h3>
+              <p className="mt-2 text-sm text-brand-muted">
+                技術は効率化を担い、医療従事者は人間らしいケアに集中する。Medixusの設計思想です。
+              </p>
+            </div>
           </div>
         </div>
       </div>

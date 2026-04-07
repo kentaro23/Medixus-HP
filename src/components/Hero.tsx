@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const trustBadges = ["全国150+拠点導入支援", "24h対応設計", "医療情報セキュリティ配慮"];
 
 const dataNodes = [
@@ -13,7 +15,7 @@ export default function Hero() {
       <div className="pointer-events-none absolute left-[-7rem] top-12 h-72 w-72 rounded-full bg-brand-primary/20 blur-3xl" aria-hidden="true" />
       <div className="pointer-events-none absolute right-[-5rem] top-20 h-64 w-64 rounded-full bg-brand-accent/30 blur-3xl animate-pulse-node" aria-hidden="true" />
 
-      <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-6 lg:grid-cols-[1.06fr_0.94fr] lg:items-center lg:px-8">
+      <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:px-8">
         <div className="animate-fade-up">
           <p className="mb-4 inline-flex items-center rounded-full border border-brand-primary/20 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-primary">
             Healthcare DX Platform
@@ -52,31 +54,28 @@ export default function Hero() {
         </div>
 
         <div className="animate-fade-up [animation-delay:0.16s]">
-          <div className="glass-card brand-shadow rounded-3xl p-6 sm:p-7">
-            <div className="mb-5 flex items-center justify-between">
-              <p className="text-sm font-bold text-brand-text">Realtime Operations Board</p>
-              <span className="rounded-full bg-brand-sub-bg px-3 py-1 text-xs font-semibold text-brand-primary">Live</span>
-            </div>
+          <div className="relative overflow-hidden rounded-3xl border border-brand-sub-bg bg-white brand-shadow">
+            <Image
+              src="/images/generated/hero-future.jpg"
+              alt="近未来の医療オペレーションセンター"
+              width={1376}
+              height={768}
+              className="h-[380px] w-full object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/85 via-brand-dark/30 to-transparent" />
 
-            <div className="rounded-2xl border border-brand-sub-bg bg-white p-5">
-              <div className="mb-4 flex items-end justify-between">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-muted">Current KPI</p>
-                  <p className="mt-1 text-2xl font-extrabold text-brand-text">92.4%</p>
-                </div>
-                <span className="rounded-full bg-brand-accent px-3 py-1 text-xs font-bold text-brand-text">+3.1%</span>
+            <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-white/20 bg-white/95 p-4 sm:inset-x-5 sm:bottom-5 sm:p-5">
+              <div className="mb-3 flex items-center justify-between">
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-muted">Realtime Operations Board</p>
+                <span className="rounded-full bg-brand-accent px-2.5 py-1 text-[11px] font-bold text-brand-text">Live</span>
               </div>
 
-              <div className="space-y-3">
+              <div className="grid gap-2 sm:grid-cols-3">
                 {dataNodes.map((node) => (
                   <div key={node.label} className="rounded-xl bg-brand-sub-bg/70 p-3">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="font-semibold text-brand-muted">{node.label}</span>
-                      <span className="font-bold text-brand-primary">{node.value}</span>
-                    </div>
-                    <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white">
-                      <div className="h-full w-3/4 rounded-full bg-brand-primary" />
-                    </div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-muted">{node.label}</p>
+                    <p className="mt-1 text-sm font-bold text-brand-primary">{node.value}</p>
                   </div>
                 ))}
               </div>
