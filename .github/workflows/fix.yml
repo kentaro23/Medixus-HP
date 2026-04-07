@@ -1,0 +1,48 @@
+name: Fix
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - run: |
+        perl -pi -e 's/<\/(\w+)>\1>/<\/$1>/g' src/app/*.tsx src/components/*.tsx
+        perl -pi -e 's/(<\/>)>/$1/g' src/app/*.tsx src/components/*.tsx
+        perl -pi -e 's/\}\s*<\/\w+>\s*$/}/g' src/app/*.tsx src/components/*.tsx
+        if ! head -1 tsconfig.json | grep -q '{'; then sed -i '1i\{' tsconfig.json; fi
+        if [ -d src/components/src ]; then
+          for f in src/components/src/components/*.tsx; do
+            b=$(basename "$f")
+            cp "$f" "src/components/$b"
+            perl -pi -e 's/<\/(\w+)>\1>/<\/$1>/g' "src/components/$b"
+            perl -pi -e 's/(<\/>)>/$1/g' "src/components/$b"
+            perl -pi -e 's/\}\s*<\/\w+>\s*$/}/g' "src/components/$b"
+          done
+          rm -rf src/components/src/
+        fi
+        find . -name '*\u533b*' -not -path './.git/*' -delete 2>/dev/null || true
+        cat > src/components/Footer.tsx << 'FEOF'
+        export default function Footer() {
+          return (
+            <footer className="bg-foreground text-white py-16">
+              <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+                <div className="flex items-center justify-center gap-2 mb-4">
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M12 2v20M2 12h20" /></svg>
+                  </div>
+                  <span className="text-xl font-bold">Medixus</span>
+                </div>
+                <p className="text-white/60 text-sm mb-8">Healthcare, Redefined.</p>
+                <p className="text-sm text-white/40">&copy; 2025 Medixus Inc.</p>
+              </div>
+            </footer>
+          );
+        }
+        FEOF
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add -A
+        git commit -m "Fix build: correct syntax errors, add missing files, remove corrupted files"
+        git push
